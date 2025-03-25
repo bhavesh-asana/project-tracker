@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: project-tracker
+  datasource:
+    url: jdbc:postgresql://localhost:5432/project-tracker # Connection parameter of database
+    username: Bhavesh # Username of the database
+    password: # Password of the database
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      pool-name: CipherGateHikariCP
+      max-lifetime: 2000000
+      connection-timeout: 30000
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create  # Use 'update', 'create', or 'validate' as needed
+    show-sql: true      # Enables SQL query logging
