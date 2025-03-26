@@ -12,4 +12,5 @@ leverages Spring Boot for the backend, JPA for database interactions, and Maven 
 
 # Database Model
 The database model for the Project Tracker application consists of the following entities:
+
 ![img.png](docs/static/db_model.png)

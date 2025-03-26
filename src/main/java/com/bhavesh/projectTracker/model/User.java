@@ -5,24 +5,25 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Entity
 @Data
-@Table(name = "user")
+@Table(name = "users")
 public class User {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+
   private int id;
 
-  @Column(unique = true, nullable = false)
+  @Id
+  @Column(unique = true)
   private String userId;
 
   private String firstName;
 
   private String lastName;
 
-  @Column(nullable = true)
   private String displayName;
 
   @Column(unique = true, nullable = false)
@@ -30,10 +31,6 @@ public class User {
 
   private String organization;
 
-  @OneToOne(mappedBy = "assignee")
-  private Jira jiraAssignee;
-
-  @OneToOne(mappedBy = "reporter")
-  private Jira jiraReporter;
-
+  @ManyToOne(cascade = CascadeType.ALL)
+  private Jira jira;
 }

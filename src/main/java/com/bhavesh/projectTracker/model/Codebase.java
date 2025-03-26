@@ -10,10 +10,9 @@ import java.util.Date;
 @Table(name = "codebase")
 public class Codebase {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
+  @Id
   @Column(unique = true)
   private String branchName;
 

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -14,10 +15,9 @@ import java.util.Date;
 @Table(name = "jira")
 public class Jira {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
+  @Id
   private Long jiraId;
   private String jiraKey;
 
@@ -25,12 +25,11 @@ public class Jira {
   private Date readyForReviewOn;
   private Date doneOn;
 
-  @OneToOne
+  @OneToMany(cascade = CascadeType.ALL)
   @JoinColumn(name = "assignee")
-  private User assignee;
+  private List<User> assignees;
 
-  @OneToOne
+  @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "reporter")
   private User reporter;
-
 }
